@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Task 1: Basic Structure - meta tags and meaningful title -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student Registration System - Register, manage, edit and delete student records easily." />
+  <meta name="author" content="Student Registration System" />
+  <title>Student Registration System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Task 2: Header with catchy title and brief description -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">🎓 Student Registration System</h1>
+      <p class="site-desc">Register student details, manage records, and keep everything organized — all in one place.</p>
+    </div>
+    <!-- Navigation link to records page -->
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Register</a>
+      <a href="records.html" class="nav-link">View Records</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <!-- Task 3: Form with input fields -->
+    <section class="form-section" aria-label="Student Registration Form">
+      <h2 class="section-title">Register a Student</h2>
+
+      <div class="form-card">
+        <!-- Student Name -->
+        <div class="form-group">
+          <label for="studentName">Student Name</label>
+          <input
+            type="text"
+            id="studentName"
+            placeholder="e.g. Ravi Kumar"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="nameError"></span>
+        </div>
+
+        <!-- Student ID -->
+        <div class="form-group">
+          <label for="studentId">Student ID</label>
+          <input
+            type="text"
+            id="studentId"
+            placeholder="e.g. 1001"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="idError"></span>
+        </div>
+
+        <!-- Email ID -->
+        <div class="form-group">
+          <label for="emailId">Email ID</label>
+          <input
+            type="text"
+            id="emailId"
+            placeholder="e.g. ravi@example.com"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="emailError"></span>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="form-group">
+          <label for="contactNo">Contact Number</label>
+          <input
+            type="text"
+            id="contactNo"
+            placeholder="e.g. 9876543210"
+            autocomplete="off"
+          />
+          <span class="error-msg" id="contactError"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn-add" id="addBtn" onclick="addStudent()">Add Student</button>
+      </div>
+    </section>
+
+    <!-- Task 4: Display Section (inline on same page) -->
+    <section class="records-section" aria-label="Registered Student Records">
+      <h2 class="section-title">Registered Students</h2>
+
+      <!-- Scrollable table container - scrollbar added dynamically via JS (Task 6) -->
+      <div class="table-wrapper" id="tableWrapper">
+        <table class="records-table" id="recordsTable">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Student ID</th>
+              <th>Email ID</th>
+              <th>Contact No.</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Rows injected by JavaScript -->
+          </tbody>
+        </table>
+        <p class="empty-msg" id="emptyMsg">No students registered yet. Add one above!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Student Registration System. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
