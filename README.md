@@ -31,5 +31,7 @@ A JavaScript DOM Manipulation project built as part of an Internshala Trainings 
 
 Open `index.html` in any modern browser. No server required.
 
+github link:https://github.com/VamshiKrishna-117/Student_Registration_System
+
 
 
