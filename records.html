@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Task 1: Basic Structure -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View all registered student records in the Student Registration System." />
+  <meta name="author" content="Student Registration System" />
+  <title>Student Records | Student Registration System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Task 2: Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">🎓 Student Registration System</h1>
+      <p class="site-desc">View and manage all registered student records in one place.</p>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Register</a>
+      <a href="records.html" class="nav-link active">View Records</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <!-- Task 4: Full records display on separate page -->
+    <section class="records-section full-page" aria-label="All Registered Students">
+      <h2 class="section-title">All Registered Students</h2>
+
+      <div class="table-wrapper" id="tableWrapper">
+        <table class="records-table" id="recordsTable">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Student ID</th>
+              <th>Email ID</th>
+              <th>Contact No.</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Rows injected by JavaScript from localStorage -->
+          </tbody>
+        </table>
+        <p class="empty-msg" id="emptyMsg">No students registered yet. <a href="index.html">Go register one!</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Student Registration System. All rights reserved.</p>
+  </footer>
+
+  <!-- records.html uses the same script; no add-form so addBtn calls are safe -->
+  <script src="script.js"></script>
+</body>
+</html>
