@@ -1,0 +1,370 @@
+/* ============================================================
+   style.css — Student Registration System
+   Task 5: Styling & Design (responsive: mobile ≤640px, tablet 641-1024px, desktop ≥1025px)
+   ============================================================ */
+
+/* ---------- CSS Variables (colour palette & typography) ---------- */
+:root {
+  --clr-bg: #f0f4ff;
+  --clr-header-from: #fbc2eb;
+  --clr-header-to: #a6c1ee;
+  --clr-accent: #4f46e5;
+  --clr-accent-dark: #3730a3;
+  --clr-danger: #ef4444;
+  --clr-danger-dark: #b91c1c;
+  --clr-success: #22c55e;
+  --clr-card: #ffffff;
+  --clr-border: #c7d2fe;
+  --clr-text: #1e1b4b;
+  --clr-text-light: #6366f1;
+  --clr-muted: #64748b;
+  --clr-row-even: #eef2ff;
+  --clr-row-hover: #e0e7ff;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(79, 70, 229, 0.12);
+  --font-display: 'Georgia', serif;
+  --font-body: 'Trebuchet MS', 'Lucida Grande', sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header (Task 2) ---------- */
+.site-header {
+  background: linear-gradient(135deg, var(--clr-header-from) 0%, #a1ffa1 50%, var(--clr-header-to) 100%);
+  padding: 2rem 2rem 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+.header-inner {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--clr-text);
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.5);
+}
+
+.site-desc {
+  margin-top: 0.4rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: #374151;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Navigation ---------- */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.45);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--clr-accent);
+  color: #ffffff;
+  border-color: var(--clr-accent-dark);
+}
+
+/* ---------- Main Layout ---------- */
+.main-content {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+
+  /* Desktop: side-by-side layout */
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* full-page variant (records.html) */
+.records-section.full-page {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--clr-accent);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--clr-border);
+}
+
+/* ---------- Form Card (Task 3) ---------- */
+.form-card {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.8rem 1.6rem;
+  border: 1px solid var(--clr-border);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid var(--clr-border);
+  border-radius: 8px;
+  font-size: 0.97rem;
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  background: #f8faff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background: #fff;
+}
+
+/* Validation error highlight */
+.form-group input.invalid {
+  border-color: var(--clr-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.error-msg {
+  color: var(--clr-danger);
+  font-size: 0.78rem;
+  margin-top: 0.25rem;
+  min-height: 1em;
+  font-weight: 500;
+}
+
+/* ---------- Add Button ---------- */
+.btn-add {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--clr-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-add:hover {
+  background: var(--clr-accent-dark);
+}
+
+.btn-add:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Records Table (Task 4) ---------- */
+.records-section {
+  min-width: 0; /* prevent grid blowout */
+}
+
+/* Table wrapper — scrollbar added dynamically by JS */
+.table-wrapper {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--clr-border);
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 520px; /* keeps columns usable on mobile */
+}
+
+.records-table thead tr {
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent-dark));
+  color: #fff;
+}
+
+.records-table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.records-table td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #e0e7ff;
+  word-break: break-word;
+}
+
+/* Alternating row colours */
+.records-table tbody tr:nth-child(even) {
+  background: var(--clr-row-even);
+}
+
+.records-table tbody tr:hover {
+  background: var(--clr-row-hover);
+  transition: background 0.15s;
+}
+
+/* ---------- Action Buttons ---------- */
+.btn-edit,
+.btn-delete {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 0.4rem;
+  transition: opacity 0.15s, transform 0.1s;
+  font-family: var(--font-body);
+}
+
+.btn-edit {
+  background: var(--clr-success);
+  color: #fff;
+}
+
+.btn-delete {
+  background: var(--clr-danger);
+  color: #fff;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  opacity: 0.85;
+}
+
+.btn-edit:active,
+.btn-delete:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Empty message ---------- */
+.empty-msg {
+  text-align: center;
+  color: var(--clr-muted);
+  padding: 2rem 1rem;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.empty-msg a {
+  color: var(--clr-accent);
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: linear-gradient(135deg, var(--clr-header-from), #a1ffa1, var(--clr-header-to));
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.82rem;
+  color: #374151;
+  margin-top: auto;
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet (641px – 1024px)
+   ============================================================ */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+
+  .records-section.full-page {
+    grid-column: auto;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile (≤ 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 1rem 0.75rem;
+    gap: 1.2rem;
+  }
+
+  .site-header {
+    padding: 1.2rem 1rem 0.8rem;
+  }
+
+  .form-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .records-section.full-page {
+    grid-column: auto;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.3rem;
+    margin-right: 0;
+  }
+}
